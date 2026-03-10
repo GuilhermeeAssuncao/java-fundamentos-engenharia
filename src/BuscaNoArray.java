@@ -20,7 +20,7 @@ public class BuscaNoArray {
             }
 
         }
-        System.out.println("Primeiro numero : " + primeiro);
+        System.out.println("Primeiro indicie : " + primeiro);
         System.out.println("Numero 2 apareceu : " + apareceu + " vezes.");
         System.out.println("numero 5 foi encontrado:" + b);
 
