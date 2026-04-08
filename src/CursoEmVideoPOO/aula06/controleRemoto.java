@@ -1,6 +1,6 @@
 package CursoEmVideoPOO.aula06;
 
-public class controleRemoto {
+public class controleRemoto extends controlador {
     private int volume;
     private boolean ligado;
     private boolean tocando;
@@ -38,5 +38,5 @@ public class controleRemoto {
         this.tocando = tocando;
     }
 
-    //
+    //sobre escrevendo metodos
 }
