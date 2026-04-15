@@ -1,5 +1,7 @@
 package SistemaBancario;
 
+import java.util.ArrayList;
+
 public class Conta {
     private String titular;
     private double saldo;
@@ -33,18 +35,26 @@ public class Conta {
             return;
         }
 
-        double saldoAntes = saldo;
-        sacar(valor);
-
-        if (saldo > saldoAntes){
-        destino.depositar(valor);
-        }else {
-            System.out.println("Transferência inválida");
+        if (valor > 0 && valor <= this.getSaldo()){
+            sacar(valor);
+            destino.depositar(valor);
+        }else{
+            System.out.println("Tranferência invalido ");
         }
+
     }
 
     public void exibirConta(){
-        System.out.println("Titular: " + titular + " | Numero da conta " + numeroConta + " | Saldo: " + saldo);
+        System.out.println("Titular: " + titular + " | Numero da conta " + numeroConta + " | Saldo: " + this.getSaldo());
+    }
+
+    public static Conta buscarConta(ArrayList<Conta> contas, int numero){
+        for (Conta conta : contas){
+            if (conta.getNumeroConta() == numero){
+                return conta;
+            }
+        }
+        return null;
     }
 
 
@@ -76,5 +86,20 @@ public class Conta {
         this.saldo = saldo;
     }
 
+    public int getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public static int getContador() {
+        return contador;
+    }
+
+    public static void setContador(int contador) {
+        Conta.contador = contador;
+    }
 }
 
