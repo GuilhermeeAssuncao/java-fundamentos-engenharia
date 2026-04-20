@@ -19,13 +19,13 @@ public class Conta {
     }
 
     public void sacar(double valor){
-        if (valor <= this.getSaldo() && valor > 0){
-            this.setSaldo(this.getSaldo() - valor);
-        }
-        if (valor > this.getSaldo()){
-            System.out.println("saldo insuficiente");
-        } else if (valor < 0) {
+        if (valor < 0){
             System.out.println("Valor negativo");
+        }else if (valor > this.getSaldo()){
+            System.out.println("saldo insuficiente");
+        }
+        else {
+            this.setSaldo(this.getSaldo() - valor);
         }
     }
 
@@ -34,12 +34,21 @@ public class Conta {
             System.out.println("Conta invalida");
             return;
         }
+        if ( valor <= 0) {
+            System.out.println("Valor invalido");
+            return;
+        }
+
+        if (valor > this.getSaldo()){
+            System.out.println("Saldo insuficiente");
+            return;
+        }
 
         if (valor > 0 && valor <= this.getSaldo()){
             sacar(valor);
             destino.depositar(valor);
         }else{
-            System.out.println("Tranferência invalido ");
+            System.out.println("Tranferência inválida ");
         }
 
     }
@@ -90,16 +99,8 @@ public class Conta {
         return numeroConta;
     }
 
-    public void setNumeroConta(int numeroConta) {
-        this.numeroConta = numeroConta;
-    }
-
     public static int getContador() {
         return contador;
-    }
-
-    public static void setContador(int contador) {
-        Conta.contador = contador;
     }
 }
 

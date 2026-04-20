@@ -35,25 +35,16 @@ public class Main {
                     System.out.println("Escolha o numero da conta:");
                     int numeroConta = sc.nextInt();
 
-                    Conta contaEscolhida = null;;
+                    Conta contaEscolhida = Conta.buscarConta(contas , numeroConta);
 
-                    for (Conta conta: contas){
-                        if (conta.getNumeroConta() == numeroConta){
-                            contaEscolhida = conta;
-                            break;
-                        }
+                   if ( contaEscolhida == null) {
+                       System.out.println("Conta não encontrada");
+                       break;
+                   }
 
-                        if (contaEscolhida == null){
-                            System.out.println("Conta não encontrada");
-                            break;
-                        }
-
-
-                    }
                     System.out.println("Digite o valor do deposito: ");
                     double valor = sc.nextDouble();
                     contaEscolhida.depositar(valor);
-                    System.out.println("Depositado com sucesso!");
                     break;
 
                 case 2:
@@ -61,26 +52,16 @@ public class Main {
                     System.out.println("Escolha o numero da conta:");
                     int numero = sc.nextInt();
 
-                    Conta aConta = null;
+                    Conta contA = Conta.buscarConta(contas, numero);
 
-                    for (Conta conta: contas){
-                        if (conta.getNumeroConta() == numero){
-                            aConta = conta;
-                            break;
-                        }
-
-                        Conta contaescolhida = Conta.buscarConta(contas, numero);
-
-                        if (contaescolhida == null){
-                            System.out.println("Conta não encontrada");
-                            break;
-                        }
+                    if ( contA == null) {
+                        System.out.println("conta não encontrada");
+                        break;
                     }
-
 
                     System.out.println("Valor do saque");
                     valor = sc.nextDouble();
-                    aConta.sacar(valor);
+                    contA.sacar(valor);
                     break;
                 case 3:
                     System.out.println("numero da conta origem:");
@@ -95,20 +76,28 @@ public class Main {
                     if (contaOrigem == null || contaDestino == null){
                     System.out.println("Conta não encontrada");
                     break;
+                    }else if (contaOrigem== contaDestino){
+                        System.out.println("Não é possivel trasfeir para a mesma conta");
+                        break;
                     }
                     System.out.println("Valor da transferencia");
-                    valor  = sc.nextDouble();
+                    double valorTra  = sc.nextDouble();
 
-                    contaOrigem.transferir(contaDestino,valor);
-
+                    contaOrigem.transferir(contaDestino,valorTra);
                     break;
                     case 4:
+                        if (contas.isEmpty()){
+                            System.out.println("Nenhuma conta encontrada");
+                            break;
+                        }
+
                         for (Conta conta : contas){
                             conta.exibirConta();
                         }
                         break;
                 case 5:
                     System.out.println("Nome do titular");
+                    sc.nextLine();
                     String nomeTitular = sc.next();
 
                     Conta nova = new Conta(nomeTitular);
