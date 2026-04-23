@@ -1,4 +1,4 @@
-package CursoEmVideoPOO.aula07AND8;  // 13:00
+package CursoEmVideoPOO.aula07AND8;
 
 import java.util.Random;
 
@@ -31,6 +31,7 @@ public class Luta  {
             Random aleatorio = new Random();
             int vencedor = aleatorio.nextInt(3); //0 1 2
 
+            System.out.println("=====Resulyado da luta=====");
             switch (vencedor){
                 case 0: // empate
                     System.out.println("Empatou");
@@ -48,6 +49,7 @@ public class Luta  {
                     this.desafiante.ganharLuta();
                     break;
             }
+            System.out.println("==================");
         }else {
             System.out.println("Luta não pode acotecer");
         }
