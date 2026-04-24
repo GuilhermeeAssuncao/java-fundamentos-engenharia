@@ -1,5 +1,5 @@
 package CursoEmVideoPOO.aula09;
-// 11:00
+
 public class Livro  implements publicacao{
     private String titulo;
     private String autor;
@@ -11,12 +11,15 @@ public class Livro  implements publicacao{
 
     public String detalhes() {
         return "Livro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", totalPaginas=" + totalPaginas +
-                ", pagAtual=" + pagAtual +
-                ", aberto=" + aberto +
-                ", leitor=" + leitor +
+                "\n titulo='" + titulo + '\'' +
+                "\n autor='" + autor + '\'' +
+                "\n totalPaginas= " + totalPaginas +
+                "\n pagAtual= " + pagAtual +
+                "\n aberto= " + aberto +
+                "\n leitor= " + leitor.getNome() +
+                "\n idade do leitor= " + leitor.getIdade() +
+                "\n sexo do leitor= " + leitor.getSexo() +
+                "\n"+
                 '}';
     }
 
@@ -29,6 +32,8 @@ public class Livro  implements publicacao{
         this.autor = autor;
         this.totalPaginas = totalPaginas;
         this.leitor = leitor;
+        this.pagAtual = 0;
+        this.aberto = false;
     }
 
     public String getTitulo() {
@@ -91,7 +96,12 @@ public class Livro  implements publicacao{
 
     @Override
     public void folhear(int p) {
-        this.pagAtual =p;
+        if (p <= this.totalPaginas) {
+            this.pagAtual = p;
+        }else {
+            this.pagAtual = 0;
+        }
+
     }
 
     @Override
