@@ -6,11 +6,7 @@ public class funcionario extends Pessoa {
 
     //metodos
     public void mudarTrab(){
-        if (this.trabalhando == true){
-            this.trabalhando = false;
-        }else {
-            this.trabalhando = true;
-        }
+       this.trabalhando = !this.trabalhando;
     }
 
     //metodos especiais

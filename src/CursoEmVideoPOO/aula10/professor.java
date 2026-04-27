@@ -5,8 +5,8 @@ public class professor extends Pessoa {
     private double salario;
 
     // metodos
-    public void receberAume(int aumento){
-        this.salario = this.getSalario() + aumento;
+    public void receberAume(float aumento){
+        this.salario += aumento;
     }
 
     //metodos especiais

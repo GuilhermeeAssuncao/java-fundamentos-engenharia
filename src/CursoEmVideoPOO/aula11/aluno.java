@@ -1,14 +1,12 @@
-package CursoEmVideoPOO.aula10;
+package CursoEmVideoPOO.aula11;
 
-public class aluno extends Pessoa {
+public class aluno extends Pessoa{
     private int matr;
     private String curso;
 
-    public void cancelarMatr() {
-        System.out.println("matricula sera cancelada");
+    public void PagarMensalidade(){
+        System.out.println("Pagando mensalidade do aluno");
     }
-
-    //metodos especias
 
     public int getMatr() {
         return matr;

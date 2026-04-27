@@ -1,17 +1,16 @@
-package CursoEmVideoPOO.aula10;
+package CursoEmVideoPOO.aula11;
 
-public abstract class  Pessoa {
+public abstract class Pessoa {
     private String nome;
     private int idade;
     private String sexo;
 
-
-    public void  fazerAniv(){
+    public void fazerAni(){
         this.idade++;
     }
 
-    //metodos especiais
 
+    //metodos especiais
     public String getNome() {
         return nome;
     }
