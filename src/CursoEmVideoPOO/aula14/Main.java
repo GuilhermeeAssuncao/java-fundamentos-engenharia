@@ -1,6 +1,6 @@
 package CursoEmVideoPOO.aula14;
 
-public class main {
+public class Main {
     public static void main(String[] args){
         Video v[] = new Video[3];
 
